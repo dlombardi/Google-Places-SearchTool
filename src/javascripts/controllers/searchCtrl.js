@@ -31,7 +31,7 @@ app.controller('searchCtrl', ['$scope', '$log', ($scope, $log) => {
   $scope.search = (queryString) => {
     $scope.reload = false;
     if(!queryString){
-      swalError("no query provided");
+      errorReset("no query provided");
       return;
     }
     $scope.places = [];
@@ -45,13 +45,18 @@ app.controller('searchCtrl', ['$scope', '$log', ($scope, $log) => {
     service.textSearch(req, getResults);
   }
 
-  function swalError(message){
+  function errorReset(message){
     swal({
       title: "Oops!",
       type: 'error',
-      text: "no query provided!",
-      timer: 1000,
-      showConfirmButton: false });
+      text: message,
+      timer: 1500,
+      showConfirmButton: false
+    });
+    $scope.reload = true;
+    $scope.placesLoad = false;
+    $scope.navigatorLoad = false;
+    safeApply();
   }
 
   function getResults(results, status, pagination){
@@ -63,8 +68,9 @@ app.controller('searchCtrl', ['$scope', '$log', ($scope, $log) => {
       $scope.queryString = "";
       safeApply();
     } else {
-      $log.err("places service is non operational");
+      errorReset("No results found!");
     }
+
   };
 
   function formatPhotos(results){

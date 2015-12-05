@@ -8643,6 +8643,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 body {
   background-color: #fcfafa; }
 
+#app {
+  margin-top: 3em; }
+
 #title {
   text-align: center; }
 
@@ -8697,9 +8700,6 @@ body {
 
 .openBool {
   font-size: 20px; }
-
-#app {
-  margin-top: 3em; }
 
 .help-block {
   width: auto;

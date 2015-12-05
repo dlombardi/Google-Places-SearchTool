@@ -9,8 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "setup": "rm -rf public/vendor node_modules && npm install && bower install",
-    "post"
+    "setup": "rm -rf public/vendor node_modules && npm install && bower install"
   },
   "author": "",
   "license": "ISC",
