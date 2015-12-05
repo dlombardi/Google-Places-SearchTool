@@ -5,6 +5,12 @@ app.controller('searchCtrl', ['$scope', '$log', ($scope, $log) => {
   $scope.places;
   $scope.reload = false;
 
+  function safeApply(){
+     if ($scope.$root.$$phase !== '$apply' && $scope.$root.$$phase !== '$digest') {
+        $scope.$apply();
+      }
+  };
+
   (() => {
     $scope.navigatorLoad = true;
     if("geolocation" in navigator){
@@ -21,12 +27,6 @@ app.controller('searchCtrl', ['$scope', '$log', ($scope, $log) => {
       $log.error("geolocation is not available!")
     }
   })();
-
-  function safeApply(){
-     if ($scope.$root.$$phase !== '$apply' && $scope.$root.$$phase !== '$digest') {
-        $scope.$apply();
-      }
-  };
 
   $scope.search = (queryString) => {
     $scope.reload = false;
@@ -45,6 +45,19 @@ app.controller('searchCtrl', ['$scope', '$log', ($scope, $log) => {
     service.textSearch(req, getResults);
   }
 
+  function getResults(results, status, pagination){
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      let formattedPlaces = formatPhotos(results);
+      $scope.places = formattedPlaces;
+      $scope.placesLoad = false;
+      $scope.reload = true;
+      $scope.queryString = "";
+      safeApply();
+    } else {
+      errorReset("No results found!");
+    }
+  };
+
   function errorReset(message){
     swal({
       title: "Oops!",
@@ -58,20 +71,6 @@ app.controller('searchCtrl', ['$scope', '$log', ($scope, $log) => {
     $scope.navigatorLoad = false;
     safeApply();
   }
-
-  function getResults(results, status, pagination){
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-      let formattedPlaces = formatPhotos(results);
-      $scope.places = formattedPlaces;
-      $scope.placesLoad = false;
-      $scope.reload = true;
-      $scope.queryString = "";
-      safeApply();
-    } else {
-      errorReset("No results found!");
-    }
-
-  };
 
   function formatPhotos(results){
     let photoResults = results.map(place => {
