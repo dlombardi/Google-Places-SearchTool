@@ -33,14 +33,14 @@ app.controller('searchCtrl', ['$scope', '$log', function ($scope, $log) {
         safeApply();
       });
     } else {
-      $log.error("geolocation is not available!");
+      errorReset("Geolocation not available!");
     }
   })();
 
   $scope.search = function (queryString) {
     $scope.reload = false;
     if (!queryString) {
-      errorReset("no query provided");
+      errorReset("No query provided");
       return;
     }
     $scope.places = [];
@@ -69,9 +69,8 @@ app.controller('searchCtrl', ['$scope', '$log', function ($scope, $log) {
 
   function errorReset(message) {
     swal({
-      title: "Oops!",
+      title: message,
       type: 'error',
-      text: message,
       timer: 1500,
       showConfirmButton: false
     });
