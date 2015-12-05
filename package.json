@@ -1,7 +1,7 @@
 {
-  "name": "src",
+  "name": "Google_Places_Search_Tool",
   "version": "1.0.0",
-  "description": "",
+  "description": "Google places search tool",
   "babel": {
     "presets": [
       "es2015"
@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "setup": "rm -rf public/vendor node_modules && npm install && bower install"
   },
-  "author": "",
+  "author": "Darien Lombardi",
   "license": "ISC",
   "dependencies": {
     "babel-preset-es2015": "^6.1.18",
