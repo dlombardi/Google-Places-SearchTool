@@ -7,6 +7,7 @@ This app was built with:
   -Angular-materialize
   -Angular-spinner
   -Angular-messages
+  -Google places api
   -Google materialize
   -Gulp
   -Sweetalert
