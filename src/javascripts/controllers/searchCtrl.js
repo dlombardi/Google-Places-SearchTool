@@ -84,5 +84,4 @@ app.controller('searchCtrl', ['$scope', '$log', ($scope, $log) => {
     })
     return photoResults;
   }
-
 }]);
