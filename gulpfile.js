@@ -41,8 +41,6 @@ gulp.task('scripts', function(){
 gulp.task('watch', function(){
   gulp.watch(dirs.src.js, ['scripts']);
   gulp.watch(dirs.src.scss, ['sass']);
-  gulp.watch(dirs.src.html, ['html']);
-  gulp.watch(dirs.src.img, ['images']);
 });
 
 gulp.task('deploy', ['sass', 'scripts']);

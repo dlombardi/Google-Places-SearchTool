@@ -59,7 +59,6 @@ app.controller('searchCtrl', ['$scope', '$log', ($scope, $log) => {
       let formattedPlaces = formatPhotos(results);
       $scope.places = formattedPlaces;
       $scope.placesLoad = false;
-      $log.info($scope.places);
       $scope.reload = true;
       $scope.queryString = "";
       safeApply();
