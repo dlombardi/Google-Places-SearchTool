@@ -18,10 +18,10 @@ app.controller('searchCtrl', ['$scope', '$log', ($scope, $log) => {
         currentPosition = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
         map = new google.maps.Map({
            center: currentPosition,
-           zoom: 15,
+           zoom: 15
         });
         $scope.navigatorLoad = false;
-        safeApply()
+        safeApply();
       });
     } else {
       errorReset("Geolocation not available!");
