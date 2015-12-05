@@ -1,4 +1,4 @@
-let app = angular.module('zenefits_challenge', ['angularSpinner', 'ngMessages', 'ui.materialize']);
+let app = angular.module('google_places_search', ['angularSpinner', 'ngMessages', 'ui.materialize']);
 
 
 app.config(['usSpinnerConfigProvider', function (usSpinnerConfigProvider) {

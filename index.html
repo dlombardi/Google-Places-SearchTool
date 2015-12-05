@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
+
   <head>
   <link rel="stylesheet" href="/public/vendor/sweetalert/dist/sweetalert.css">
   <link rel="stylesheet" href="/public/vendor/materialize/dist/css/materialize.min.css">
   <link rel='stylesheet' href='/public/css/app.css'/>
-
   </head>
-  <body ng-app='zenefits_challenge' ng-controller="searchCtrl">
+
+  <body ng-app='google_places_search' ng-controller="searchCtrl">
     <section id="app">
       <div class="container">
         <div class="row">
@@ -57,7 +58,7 @@
                     <p ng-if="!place.photo" class="right nA">Maps not available</p>
                     <p ng-if="place.opening_hours.open_now" class="amazing openBool">Open</p>
                     <p ng-if="!place.opening_hours.open_now" class="bad openBool">Closed</p>
-                    <p class="address"><strong>Address:</strong><span>{{place.formatted_address}}</span></p>
+                    <p class="address"><strong>Address:</strong><span> {{place.formatted_address}}</span></p>
                   </div>
                 </div>
               </li>
@@ -66,8 +67,6 @@
         </div>
       </div>
     </section>
-
-
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC66cx2yEnCJoHWYxBICL6XBV49VZE3deo&libraries=places"></script>
     <script src="/public/vendor/jquery/dist/jquery.min.js"></script>
@@ -80,5 +79,6 @@
     <script src="/public/vendor/async/dist/async.min.js"></script>
     <script src="/public/vendor/sweetalert/dist/sweetalert.min.js"></script>
     <script src="/public/js/all.js"></script>
+
   </body>
 </html>
